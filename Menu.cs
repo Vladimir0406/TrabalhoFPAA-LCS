@@ -55,7 +55,11 @@ class Menu()
                     escolha = TratarOpcao(Console.ReadLine(), 4);
 
                     if (escolha == 4)
+                    {
+                        Console.WriteLine("\n  Voltando a página anterior...");
+                        Thread.Sleep(400);
                         break;
+                    }
 
                     int alg;
                     if (TratarErro(escolha))
@@ -80,8 +84,12 @@ class Menu()
                 } while (escolha != 4);
                 break;
             case 3:
-                Console.WriteLine("Finalizando programa.");
-                Thread.Sleep(500);
+                Console.Write("Finalizando programa.");
+                for (int i = 0; i < 4; i++)
+                {
+                    Console.Write(".");
+                    Thread.Sleep(500);
+                }
                 break;
         }
     }
@@ -96,7 +104,7 @@ class Menu()
 
                 Console.WriteLine("\n  LCS Dinâmico                                 ");
                 Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine(" O algoritmo LCS com programação dinâmica .....\n");
+                Console.WriteLine(" Esse algoritmo LCS é recursivo e utiliza programação dinâmica na abordagem bottom-up que soluciona as versões menores do problema primeiro e armazena as soluções encontradas em uma matriz para evitar os recalculos reduzindo sua complexidade para polinômial.\n");
 
                 Console.Write(" String 1 : ");
                 a = Console.ReadLine();
@@ -106,7 +114,7 @@ class Menu()
                 string[,] M1 = new string[a.Length, b.Length];
                 int[,] M2 = new int[a.Length, b.Length];
 
-                Console.WriteLine($"\n[{OperacoesLCS.StringPD(a, b, 0, 0, M1)}] é o LCS de tamanho [{OperacoesLCS.IntPD(a, b, 0, 0, M2)}] entre entre string 1 e 2");
+                Console.WriteLine($"\n[{OperacoesLCS.StringPD(a, b, 0, 0, M1)}] é o LCS de tamanho [{OperacoesLCS.IntPD(a, b, 0, 0, M2)}] entre entre string 1 e 2.");
 
                 Console.WriteLine("\n[Pressione alguma tecla para continuar]");
                 Console.ReadKey(true);
@@ -116,7 +124,7 @@ class Menu()
 
                 Console.WriteLine("\n  LCS Recursivo Usando Index                   ");
                 Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine(" O algoritmo LCS pode ser feito de diversas maneiras umas delas com index .....\n");
+                Console.WriteLine(" O algoritmo LCS pode ser feito de diversas maneiras, umas delas com o uso de index para controlar as iterações e acessos a substrings. Nesta versão da implementação do algoritmo LCS são utilizados 2 índices para definir o tamanho das substrings, por não usar programação dinâmica essa implementação não suporta comparações entre grandes strings.\n");
 
                 Console.Write(" String 1 : ");
                 a = Console.ReadLine();
@@ -126,7 +134,7 @@ class Menu()
                 try
                 {
                     stopwatch.Start();
-                    Console.WriteLine($"\n[{OperacoesLCS.StringIndex(a, b, 0, 0, "", stopwatch, 5000)}] é o LCS de tamanho [{OperacoesLCS.IntIndex(a, b, 0, 0)}] entre entre string 1 e 2");
+                    Console.WriteLine($"\n[{OperacoesLCS.StringIndex(a, b, 0, 0, "", stopwatch, 5000)}] é o LCS de tamanho [{OperacoesLCS.IntIndex(a, b, 0, 0)}] entre entre string 1 e 2.");
                     stopwatch.Reset();
                 }
                 catch (TimeoutException)
@@ -142,7 +150,7 @@ class Menu()
 
                 Console.WriteLine("\n  LCS Recursivo Sem Index                   ");
                 Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine(" O algoritmo LCS pode ser feito de diversas maneiras umas delas sem index .....\n");
+                Console.WriteLine(" O algoritmo LCS pode ser feito de diversas maneiras entre elas essa é implementada sem o uso de indexes ou programação dinâmica, essa implementação faz uso do método \"Substring()\" assim retornando a cada chamada uma versão reduzida da string anterior, entretanto possui um desenpenho baixo para comparação entre strings maiores.\n");
 
                 Console.Write(" String 1 : ");
                 a = Console.ReadLine();
@@ -152,7 +160,7 @@ class Menu()
                 try
                 {
                     stopwatch.Start();
-                    Console.WriteLine($"\n[{OperacoesLCS.String(a, b, "", stopwatch, 5000)}] é o LCS de tamanho [{OperacoesLCS.Int(a, b)}] entre entre string 1 e 2");
+                    Console.WriteLine($"\n[{OperacoesLCS.String(a, b, "", stopwatch, 5000)}] é o LCS de tamanho [{OperacoesLCS.Int(a, b)}] entre entre string 1 e 2.");
                     stopwatch.Reset();
                 }
                 catch (TimeoutException)
