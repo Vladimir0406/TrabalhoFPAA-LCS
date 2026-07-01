@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 class Program
-{ // Sugestão de tempo limite?
+{
     static void Main(string[] args)
     {
         Menu inicializador = new();
