@@ -1,7 +1,7 @@
 using System.Diagnostics;
 class LCS()
-{   // LCS Dinâmico que retorna a maior subsequência 
-    public string StringPD(string A, string B, int iA, int iB, string[,] solucao)
+{
+    public string StringPD(string A, string B, int iA, int iB, string[,] solucao) // LCS Dinâmico que retorna a maior subsequência
     {   // Condição de parada
         if (iA >= A.Length || iB >= B.Length) // Caso esteja no final de qualquer uma das strings retornal null
             return "";
@@ -18,8 +18,7 @@ class LCS()
             return solucao[iA, iB] = a.Length > b.Length ? a : b; // Retorna a sting que encontrou a maior subsequência
         }
     }
-    // LCS Dinâmico que retorna o tamanho int
-    public int IntPD(string A, string B, int iA, int iB, int[,] solucao)
+    public int IntPD(string A, string B, int iA, int iB, int[,] solucao) // LCS Dinâmico que retorna o tamanho int
     {   // Condição de parada
         if (iA >= A.Length || iB >= B.Length)  // Caso esteja no final de qualquer uma das strings retornal null
             return 0;
@@ -32,8 +31,7 @@ class LCS()
         else // Chamado que cria a arvore de opções passando as strings que com um caractere a menos em cada chamado e retorna a maior substring encontrada
             return solucao[iA, iB] = Math.Max(IntPD(A, B, iA + 1, iB, solucao), IntPD(A, B, iA, iB + 1, solucao));
     }
-    // LCS que retorna a maior subsequência usando index
-    public string StringIndex(string A, string B, int iA, int iB, string palavra)
+    public string StringIndex(string A, string B, int iA, int iB, string palavra) // LCS que retorna a maior subsequência usando index
     {   // Condição de parada
         if (iA >= A.Length || iB >= B.Length) // Para caso chegue no final de qualquer string retornando null
             return "";
@@ -47,8 +45,7 @@ class LCS()
             return a1.Length > a2.Length ? a1 : a2; // Retorna a sting que encontrou a maior subsequência
         }
     }
-    // LCS que retorna a maior subsequência usando index Com sobrecarga para monitoramento de tempo de execução
-    public string StringIndex(string A, string B, int iA, int iB, string palavra, Stopwatch tempo, int limiteMilisec)
+    public string StringIndex(string A, string B, int iA, int iB, string palavra, Stopwatch tempo, int limiteMilisec)  // LCS que retorna a maior subsequência usando index Com sobrecarga para monitoramento de tempo de execução
     {
         if (tempo.Elapsed.TotalMilliseconds >= limiteMilisec)
             throw new TimeoutException();
@@ -66,8 +63,7 @@ class LCS()
             return a1.Length > a2.Length ? a1 : a2; // Retorna a sting que encontrou a maior subsequência
         }
     }
-    // LCS que retorna o tamanho usando index
-    public int IntIndex(string A, string B, int iA, int iB)
+    public int IntIndex(string A, string B, int iA, int iB) // LCS que retorna o tamanho usando index
     {   // Condição de parada
         if (iA >= A.Length || iB >= B.Length) // Para caso chegue no final de qualquer string retornando 0
             return 0;
@@ -77,8 +73,7 @@ class LCS()
         else // Cria arvore de opções reduzindo um caractere em cada string e retorna o maior tamanho de subsequência encontrado
             return Math.Max(IntIndex(A, B, iA + 1, iB), IntIndex(A, B, iA, iB + 1));
     }
-    // LCS Retornando a maior subsequência sem index
-    public string String(string A, string B, string palavra)
+    public string String(string A, string B, string palavra) // LCS Retornando a maior subsequência sem index
     {   // Condição de parada
         if (A.Length == 0 || B.Length == 0) // Para caso chegue no final de qualquer string retornando null
             return "";
@@ -92,8 +87,7 @@ class LCS()
             return a1.Length > a2.Length ? a1 : a2; // Retorna a sting que encontrou a maior subsequência
         }
     }
-    // LCS Retornando a maior subsequência sem index Com sobrecarga para monitoramento de tempo de execução
-    public string String(string A, string B, string palavra, Stopwatch tempo, int limiteMilisec)
+    public string String(string A, string B, string palavra, Stopwatch tempo, int limiteMilisec) // LCS Retornando a maior subsequência sem index Com sobrecarga para monitoramento de tempo de execução
     {
         if (tempo.Elapsed.TotalMilliseconds >= limiteMilisec)
             throw new TimeoutException();
@@ -111,8 +105,7 @@ class LCS()
             return a1.Length > a2.Length ? a1 : a2; // Retorna a sting que encontrou a maior subsequência
         }
     }
-    // LCS Retornando o tamanho sem index
-    public int Int(string A, string B)
+    public int Int(string A, string B) // LCS Retornando o tamanho sem index
     {   // Condição de parada
         if (A.Length == 0 || B.Length == 0)
             return 0;
