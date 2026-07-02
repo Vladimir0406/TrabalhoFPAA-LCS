@@ -95,7 +95,7 @@ class Menu()
     }
     public bool ExecutarMenuVersoes(int escolha)
     {
-        Stopwatch stopwatch = new();
+        Stopwatch stopwatch = new();  // Criação de stopwatch para medição do tempo
         string a, b;
         switch (escolha)
         {
@@ -216,7 +216,7 @@ class Menu()
     }
     public double Cronometrar(int alg, string a, string b)
     {
-        Stopwatch stopwatch = new();
+        Stopwatch stopwatch = new(); // Criação de stopwatch para medição do tempo
         string lcsString = "";
         double stringMiliSec = 0, intMiliSec = 0, miliSec = 0;
         int lcsInt = 0;
@@ -231,7 +231,7 @@ class Menu()
 
                 Console.WriteLine(" LCS Dinâmico");
                 Console.WriteLine("--------------");
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o LCS
                 {
                     M1 = new string[a.Length, b.Length];
 
@@ -243,7 +243,7 @@ class Menu()
                 stringMiliSec = miliSec / 50;
 
                 miliSec = 0;
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o tamanho do LCS
                 {
                     M2 = new int[a.Length, b.Length];
 
@@ -257,7 +257,7 @@ class Menu()
             case 2:
                 Console.WriteLine(" LCS Utilizando Index");
                 Console.WriteLine("----------------------");
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o LCS
                 {
                     stopwatch.Restart();
                     lcsString = OperacoesLCS.StringIndex(a, b, 0, 0, "", stopwatch, 5000);
@@ -267,7 +267,7 @@ class Menu()
                 stringMiliSec = miliSec / 50;
 
                 miliSec = 0;
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o tamanho do LCS
                 {
                     stopwatch.Restart();
                     lcsInt = OperacoesLCS.IntIndex(a, b, 0, 0);
@@ -279,7 +279,7 @@ class Menu()
             case 3:
                 Console.WriteLine(" LCS sem Index");
                 Console.WriteLine("---------------");
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o LCS
                 {
                     stopwatch.Restart();
                     lcsString = OperacoesLCS.String(a, b, "", stopwatch, 5000);
@@ -289,7 +289,7 @@ class Menu()
                 stringMiliSec = miliSec / 50;
 
                 miliSec = 0;
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++) // Calculo de tempo média da execução para encontrar o tamanho do LCS
                 {
                     stopwatch.Restart();
                     lcsInt = OperacoesLCS.Int(a, b);
@@ -305,7 +305,7 @@ class Menu()
 
         return stringMiliSec + intMiliSec;
     }
-    public int TratarOpcao(string s, int maior)
+    public int TratarOpcao(string s, int maior) // Função que recebe a entrada do usuário e tentar converter pra string
     {
         int opcao;
         if (!int.TryParse(s, out opcao))
