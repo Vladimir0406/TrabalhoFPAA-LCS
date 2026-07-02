@@ -61,7 +61,7 @@ Entretanto, quando o problema é generalizado para a comparação simultânea de
 
 # Como executar
 
-1. Clone o repositório.
+1. Clone o repositório ou baixe o arquivo zip.
 2. Abra o projeto em uma IDE compatível com C#.
 3. Compile a aplicação.
 4. Execute o programa.
